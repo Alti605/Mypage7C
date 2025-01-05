@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Chess - Chess Pieces</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Learn Chess - Chess Pieces</h1>
+        <p>Explore and learn about each chess piece!</p>
+    </header>
 
+    <nav>
+        <ul>
+            <li><a href="#pawn">Pawn</a></li>
+            <li><a href="#rook">Rook</a></li>
+            <li><a href="#knight">Knight</a></li>
+            <li><a href="#bishop">Bishop</a></li>
+            <li><a href="#queen">Queen</a></li>
+            <li><a href="#king">King</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Pawn Section -->
+        <section id="pawn">
+            <h2>The Pawn</h2>
+            <img src="images/pawn.jpg" alt="Pawn Piece" class="piece-image">
+            <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time, but captures diagonally. On its first move, a pawn can move two squares forward. If it reaches the opposite end of the board, it can be promoted to another piece (except the king).</p>
+            <h3>Puzzle</h3>
+            <div class="puzzle-section">
+                <h3>Pawn Puzzle: Can you promote your pawn?</h3>
+                <p class="puzzle-description">In this puzzle, you need to move your pawn to the opposite end of the board and promote it. Can you find the best move?</p>
+                <div class="puzzle-container">
+                    <div id="pawn-puzzle-board" class="puzzle-board"></div>
+                </div>
+            </div>
+            <button onclick="showChessboard('pawn')">See Pawn in Action</button>
+            <div id="pawn-board" class="chessboard"></div>
+        </section>
+
+        <!-- Rook Section -->
+        <section id="rook">
+            <h2>The Rook</h2>
+            <img src="images/rook.jpg" alt="Rook Piece" class="piece-image">
+            <p>The rook is a powerful piece that moves vertically or horizontally across the board. It is used for both offense and defense, and it can be used to control open files and ranks.</p>
+            <h3>Puzzle</h3>
+            <div class="puzzle-section">
+                <h3>Rook Puzzle: Can you checkmate with the rook?</h3>
+                <p class="puzzle-description">In this puzzle, you need to deliver checkmate using your rook. Can you find the best sequence of moves?</p>
+                <div class="puzzle-container">
+                    <div id="rook-puzzle-board" class="puzzle-board"></div>
+                </div>
+            </div>
+            <button onclick="showChessboard('rook')">See Rook in Action</button>
+            <div id="rook-board" class="chessboard"></div>
+        </section>
+
+        <!-- Knight Section -->
+        <section id="knight">
+            <h2>The Knight</h2>
+            <img src="images/knight.jpg" alt="Knight Piece" class="piece-image">
+            <p>The knight is a unique piece that moves in an "L" shape: two squares in one direction and then one square perpendicular to it. The knight is the only piece that can "jump" over other pieces.</p>
+            <h3>Puzzle</h3>
+            <div class="puzzle-section">
+                <h3>Knight Puzzle: Can you fork two pieces?</h3>
+                <p class="puzzle-description">In this puzzle, you need to use the knight to fork two enemy pieces. Can you find the best move?</p>
+                <div class="puzzle-container">
+                    <div id="knight-puzzle-board" class="puzzle-board"></div>
+                </div>
+            </div>
+            <button onclick="showChessboard('knight')">See Knight in Action</button>
+            <div id="knight-board" class="chessboard"></div>
+        </section>
+
+        <!-- Bishop Section -->
+        <section id="bishop">
+            <h2>The Bishop</h2>
+            <img src="images/bishop.jpg" alt="Bishop Piece" class="piece-image">
+            <p>The bishop moves diagonally, covering squares of a single color. It is an important piece in controlling long diagonals and often plays a key role in endgames.</p>
+            <h3>Puzzle</h3>
+            <div class="puzzle-section">
+                <h3>Bishop Puzzle: Can you deliver checkmate with the bishop?</h3>
+                <p class="puzzle-description">In this puzzle, you need to use your bishop to checkmate the opponent. Can you figure out the best move?</p>
+                <div class="puzzle-container">
+                    <div id="bishop-puzzle-board" class="puzzle-board"></div>
+                </div>
+            </div>
+            <button onclick="showChessboard('bishop')">See Bishop in Action</button>
+            <div id="bishop-board" class="chessboard"></div>
+        </section>
+
+        <!-- Queen Section -->
+        <section id="queen">
+            <h2>The Queen</h2>
+            <img src="images/queen.jpg" alt="Queen Piece" class="piece-image">
+            <p>The queen is the most powerful piece in chess. It can move vertically, horizontally, or diagonally, combining the moves of the rook and bishop.</p>
+            <h3>Puzzle</h3>
+            <div class="puzzle-section">
+                <h3>Queen Puzzle: Can you deliver checkmate with the queen?</h3>
+                <p class="puzzle-description">In this puzzle, you need to deliver checkmate using your queen. Can you find the best move to win the game?</p>
+                <div class="puzzle-container">
+                    <div id="queen-puzzle-board" class="puzzle-board"></div>
+                </div>
+            </div>
+            <button onclick="showChessboard('queen')">See Queen in Action</button>
+            <div id="queen-board" class="chessboard"></div>
+        </section>
+
+        <!-- King Section -->
+        <section id="king">
+            <h2>The King</h2>
+            <img src="images/king.jpg" alt="King Piece" class="piece-image">
+            <p>The king is the most important piece in chess. The game ends when the king is checkmated. The king moves one square in any direction, but it cannot move into check.</p>
+            <h3>Puzzle</h3>
+            <div class="puzzle-section">
+                <h3>King Puzzle: Can you escape checkmate?</h3>
+                <p class="puzzle-description">In this puzzle, your king is in check. Can you find the best move to escape checkmate?</p>
+                <div class="puzzle-container">
+                    <div id="king-puzzle-board" class="puzzle-board"></div>
+                </div>
+            </div>
+            <button onclick="showChessboard('king')">See King in Action</button>
+            <div id="king-board" class="chessboard"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Chess Website</p>
+    </footer>
+
+    <script>
+        function showChessboard(piece) {
+            const boardElement = document.getElementById(piece + '-board');
+            const board = Chessboard(boardElement);
+            board.start();
+        }
+
+        // Initialize puzzle boards for each piece (example: Pawn)
+        function initializePawnPuzzle() {
+            const puzzleBoardElement = document.getElementById('pawn-puzzle-board');
+            const puzzleBoard = Chessboard(puzzleBoardElement);
+            puzzleBoard.position('8/8/8/8/8/8/8/4P3 w - - 0 1');
+        }
+
+        // Initialize other puzzle boards
+        function initializeRookPuzzle() {
+            const puzzleBoardElement = document.getElementById('rook-puzzle-board');
+            const puzzleBoard = Chessboard(puzzleBoardElement);
+            puzzleBoard.position('8/8/8/8/8/8/8/4R3 w - - 0 1');
+        }
+
+        function initializeKnightPuzzle() {
+            const puzzleBoardElement = document.getElementById('knight-puzzle-board');
+            const puzzleBoard = Chessboard(puzzleBoardElement);
+            puzzleBoard.position('8/8/8/8/8/8/8/4N3 w - - 0 1');
+        }
+
+        function initializeBishopPuzzle() {
+            const puzzleBoardElement = document.getElementById('bishop-puzzle-board');
+            const puzzleBoard = Chessboard(puzzleBoardElement);
+            puzzleBoard.position('8/8/8/8/8/8/8/4B3 w - - 0 1');
+        }
+
+        function initializeQueenPuzzle() {
+            const puzzleBoardElement = document.getElementById('queen-puzzle-board');
+            const puzzleBoard = Chessboard(puzzleBoardElement);
+            puzzleBoard.position('8/8/8/8/8/8/8/4Q3 w - - 0 1');
+        }
+
+        function initializeKingPuzzle() {
+            const puzzleBoardElement = document.getElementById('king-puzzle-board');
+            const puzzleBoard = Chessboard(puzzleBoardElement);
+            puzzleBoard.position('8/8/8/8/8/8/8/4K3 w - - 0 1');
+        }
+
+        // Initialize all puzzle boards on page load
+        window.onload = function() {
+            initializePawnPuzzle();
+            initializeRookPuzzle();
+            initializeKnightPuzzle();
+            initializeBishopPuzzle();
+            initializeQueenPuzzle();
+            initializeKingPuzzle();
+        };
+    </script>
+</body>
+</html>
