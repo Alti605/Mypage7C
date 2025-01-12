@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Chess - Chess Pieces</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Improved Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Chessboard.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+    <!-- Chessboard.js Script -->
     <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
     <style>
-        /* Your existing styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body Styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f4f4f4;
             color: #333;
             padding: 20px;
+            line-height: 1.6;
         }
 
         header {
@@ -28,30 +33,33 @@
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
+            font-weight: 600;
             color: #2c3e50;
         }
 
         header p {
             font-size: 1.2em;
             color: #7f8c8d;
+            margin-top: 10px;
         }
 
         nav ul {
             list-style-type: none;
             text-align: center;
-            margin-bottom: 30px;
+            margin: 20px 0;
         }
 
         nav ul li {
             display: inline;
-            margin-right: 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #2980b9;
             font-weight: 500;
+            color: #2980b9;
+            font-size: 1em;
         }
 
         nav ul li a:hover {
@@ -63,19 +71,12 @@
         }
 
         section h2 {
-            font-size: 2em;
+            font-size: 2.2em;
+            font-weight: 600;
             color: #2c3e50;
             margin-bottom: 10px;
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
-        }
-
-        .piece-image {
-            width: 200px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
         }
 
         button {
@@ -85,8 +86,11 @@
             cursor: pointer;
             font-size: 1.1em;
             border-radius: 5px;
-            display: block;
+            border: none;
             margin: 20px auto;
+            display: block;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
         }
 
         button:hover {
@@ -94,10 +98,9 @@
         }
 
         .chessboard {
-            margin-top: 20px;
+            margin: 20px auto;
             width: 400px;
             height: 400px;
-            margin: 20px auto;
         }
 
         footer {
@@ -117,7 +120,8 @@
             color: #ecf0f1;
         }
 
-        body.dark-mode header h1 {
+        body.dark-mode header h1,
+        body.dark-mode section h2 {
             color: #ecf0f1;
         }
 
@@ -125,24 +129,11 @@
             color: #3498db;
         }
 
-        body.dark-mode footer p {
-            color: #ecf0f1;
-        }
-
         body.dark-mode button {
-            background-color: #2980b9;
-            color: white;
-        }
-
-        body.dark-mode button:hover {
             background-color: #3498db;
         }
 
-        body.dark-mode section h2 {
-            color: #ecf0f1;
-        }
-
-        body.dark-mode section p {
+        body.dark-mode footer p {
             color: #ecf0f1;
         }
     </style>
@@ -166,32 +157,46 @@
     </nav>
 
     <main>
-        <!-- Example Section -->
+        <!-- Pawn Section -->
         <section id="pawn">
             <h2>The Pawn</h2>
-            <img src="https://via.placeholder.com/200x200?text=Pawn" alt="Pawn Piece" class="piece-image">
-            <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time, but captures diagonally.</p>
-            <button onclick="showChessboard('pawn')">See Pawn in Action</button>
+            <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time but captures diagonally.</p>
             <div id="pawn-board" class="chessboard"></div>
+            <button onclick="showChessboard('pawn-board')">See Pawn in Action</button>
         </section>
 
-        <!-- Repeat sections as needed -->
-
+        <!-- Add other chess pieces here -->
     </main>
 
     <footer>
-        <p>&copy; 2025 Your Chess Website</p>
+        <p>&copy; 2025 Learn Chess</p>
     </footer>
 
     <script>
-        function showChessboard(piece) {
-            const boardElement = document.getElementById(piece + '-board');
-            Chessboard(boardElement, { position: 'start' });
-        }
+        // Ensure the script runs after the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to initialize the chessboard
+            function showChessboard(boardId) {
+                const boardElement = document.getElementById(boardId);
+                if (boardElement) {
+                    Chessboard(boardElement, { position: 'start' });
+                } else {
+                    console.error(`Chessboard element with ID ${boardId} not found.`);
+                }
+            }
 
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
+            // Toggle dark mode
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+            }
+
+            // Expose functions globally for button click events
+            window.showChessboard = showChessboard;
+            window.toggleDarkMode = toggleDarkMode;
+        });
     </script>
+</body>
+</html>
+
 </body>
 </html>
