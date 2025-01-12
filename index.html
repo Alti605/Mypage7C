@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Chess - Chess Pieces</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
     <style>
-        /* Basic styles (same as before) */
+        /* Your existing styles */
         * {
             margin: 0;
             padding: 0;
@@ -109,13 +110,48 @@
         footer p {
             margin-bottom: 10px;
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        body.dark-mode header h1 {
+            color: #ecf0f1;
+        }
+
+        body.dark-mode nav ul li a {
+            color: #3498db;
+        }
+
+        body.dark-mode footer p {
+            color: #ecf0f1;
+        }
+
+        body.dark-mode button {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        body.dark-mode button:hover {
+            background-color: #3498db;
+        }
+
+        body.dark-mode section h2 {
+            color: #ecf0f1;
+        }
+
+        body.dark-mode section p {
+            color: #ecf0f1;
+        }
     </style>
 </head>
 <body>
-
     <header>
         <h1>Learn Chess - Chess Pieces</h1>
         <p>Explore and learn about each chess piece!</p>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
 
     <nav>
@@ -130,25 +166,16 @@
     </nav>
 
     <main>
-        <!-- Pawn Section -->
+        <!-- Example Section -->
         <section id="pawn">
             <h2>The Pawn</h2>
             <img src="https://via.placeholder.com/200x200?text=Pawn" alt="Pawn Piece" class="piece-image">
-            <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time, but captures diagonally. On its first move, a pawn can move two squares forward. If it reaches the opposite end of the board, it can be promoted to another piece (except the king).</p>
+            <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time, but captures diagonally.</p>
             <button onclick="showChessboard('pawn')">See Pawn in Action</button>
             <div id="pawn-board" class="chessboard"></div>
         </section>
 
-        <!-- Rook Section -->
-        <section id="rook">
-            <h2>The Rook</h2>
-            <img src="https://via.placeholder.com/200x200?text=Rook" alt="Rook Piece" class="piece-image">
-            <p>The rook is a powerful piece that moves vertically or horizontally across the board. It is used for both offense and defense, and it can be used to control open files and ranks.</p>
-            <button onclick="showChessboard('rook')">See Rook in Action</button>
-            <div id="rook-board" class="chessboard"></div>
-        </section>
-
-        <!-- Other sections for Knight, Bishop, Queen, King -->
+        <!-- Repeat sections as needed -->
 
     </main>
 
@@ -159,22 +186,12 @@
     <script>
         function showChessboard(piece) {
             const boardElement = document.getElementById(piece + '-board');
-            const board = Chessboard(boardElement);
-            board.start();
+            Chessboard(boardElement, { position: 'start' });
         }
 
-        // Initialize puzzle boards for each piece (example for Pawn)
-        function initializePawnPuzzle() {
-            const puzzleBoardElement = document.getElementById('pawn-puzzle-board');
-            const puzzleBoard = Chessboard(puzzleBoardElement);
-            puzzleBoard.position('8/8/8/8/8/8/8/4P3 w - - 0 1');
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
         }
-
-        window.onload = function() {
-            initializePawnPuzzle();
-            // Initialize other puzzle boards here
-        };
     </script>
-
 </body>
 </html>
