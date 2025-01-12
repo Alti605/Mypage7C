@@ -7,30 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
     <style>
-        /* Reset some default styles */
+        /* Basic styles (same as before) */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body and Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
             background-color: #f4f4f4;
             color: #333;
             padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark Mode */
-        body.dark-mode {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-
-        /* Header Section */
         header {
             text-align: center;
             margin-bottom: 20px;
@@ -46,7 +36,6 @@
             color: #7f8c8d;
         }
 
-        /* Navigation */
         nav ul {
             list-style-type: none;
             text-align: center;
@@ -62,21 +51,12 @@
             text-decoration: none;
             color: #2980b9;
             font-weight: 500;
-            font-size: 1.1em;
-            transition: color 0.3s;
         }
 
         nav ul li a:hover {
             color: #3498db;
         }
 
-        /* Main Section */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Chess Piece Sections */
         section {
             margin-bottom: 40px;
         }
@@ -97,34 +77,21 @@
             border-radius: 8px;
         }
 
-        .puzzle-section {
-            margin-top: 20px;
-        }
-
-        .puzzle-description {
-            font-size: 1.1em;
-            color: #7f8c8d;
-            margin-bottom: 10px;
-        }
-
         button {
             background-color: #2980b9;
             color: white;
-            border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 1.1em;
             border-radius: 5px;
             display: block;
             margin: 20px auto;
-            transition: background-color 0.3s;
         }
 
         button:hover {
             background-color: #3498db;
         }
 
-        /* Chessboard Styles */
         .chessboard {
             margin-top: 20px;
             width: 400px;
@@ -132,7 +99,6 @@
             margin: 20px auto;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin-top: 40px;
@@ -143,54 +109,9 @@
         footer p {
             margin-bottom: 10px;
         }
-
-        /* Dark Mode Styles for Links and Other Elements */
-        body.dark-mode header h1, body.dark-mode section h2 {
-            color: #ecf0f1;
-        }
-
-        body.dark-mode nav ul li a {
-            color: #3498db;
-        }
-
-        body.dark-mode nav ul li a:hover {
-            color: #2980b9;
-        }
-
-        body.dark-mode footer {
-            color: #bdc3c7;
-        }
-
-        body.dark-mode button {
-            background-color: #3498db;
-        }
-
-        body.dark-mode button:hover {
-            background-color: #2980b9;
-        }
-
-        /* Toggle Dark Mode Button */
-        .dark-mode-toggle {
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
-            border-radius: 5px;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .dark-mode-toggle:hover {
-            background-color: #2980b9;
-        }
     </style>
 </head>
 <body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
     <header>
         <h1>Learn Chess - Chess Pieces</h1>
@@ -212,16 +133,8 @@
         <!-- Pawn Section -->
         <section id="pawn">
             <h2>The Pawn</h2>
-            <img src="images/pawn.jpg" alt="Pawn Piece" class="piece-image">
+            <img src="https://via.placeholder.com/200x200?text=Pawn" alt="Pawn Piece" class="piece-image">
             <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time, but captures diagonally. On its first move, a pawn can move two squares forward. If it reaches the opposite end of the board, it can be promoted to another piece (except the king).</p>
-            <h3>Puzzle</h3>
-            <div class="puzzle-section">
-                <h3>Pawn Puzzle: Can you promote your pawn?</h3>
-                <p class="puzzle-description">In this puzzle, you need to move your pawn to the opposite end of the board and promote it. Can you find the best move?</p>
-                <div class="puzzle-container">
-                    <div id="pawn-puzzle-board" class="puzzle-board"></div>
-                </div>
-            </div>
             <button onclick="showChessboard('pawn')">See Pawn in Action</button>
             <div id="pawn-board" class="chessboard"></div>
         </section>
@@ -229,21 +142,13 @@
         <!-- Rook Section -->
         <section id="rook">
             <h2>The Rook</h2>
-            <img src="images/rook.jpg" alt="Rook Piece" class="piece-image">
+            <img src="https://via.placeholder.com/200x200?text=Rook" alt="Rook Piece" class="piece-image">
             <p>The rook is a powerful piece that moves vertically or horizontally across the board. It is used for both offense and defense, and it can be used to control open files and ranks.</p>
-            <h3>Puzzle</h3>
-            <div class="puzzle-section">
-                <h3>Rook Puzzle: Can you checkmate with the rook?</h3>
-                <p class="puzzle-description">In this puzzle, you need to deliver checkmate using your rook. Can you find the best sequence of moves?</p>
-                <div class="puzzle-container">
-                    <div id="rook-puzzle-board" class="puzzle-board"></div>
-                </div>
-            </div>
             <button onclick="showChessboard('rook')">See Rook in Action</button>
             <div id="rook-board" class="chessboard"></div>
         </section>
 
-        <!-- Additional sections for Knight, Bishop, Queen, King go here... -->
+        <!-- Other sections for Knight, Bishop, Queen, King -->
 
     </main>
 
@@ -252,34 +157,13 @@
     </footer>
 
     <script>
-        // Function to toggle dark mode
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-            
-            // Save the dark mode preference to localStorage so it's remembered
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                localStorage.removeItem('darkMode');
-            }
-        }
-
-        // Check if dark mode was enabled previously and apply it
-        window.onload = function() {
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                document.body.classList.add('dark-mode');
-            }
-        };
-
         function showChessboard(piece) {
             const boardElement = document.getElementById(piece + '-board');
             const board = Chessboard(boardElement);
             board.start();
         }
 
-        // Initialize puzzle boards for each piece
-        // Example for Pawn puzzle (you can replicate for other pieces)
+        // Initialize puzzle boards for each piece (example for Pawn)
         function initializePawnPuzzle() {
             const puzzleBoardElement = document.getElementById('pawn-puzzle-board');
             const puzzleBoard = Chessboard(puzzleBoardElement);
@@ -288,8 +172,9 @@
 
         window.onload = function() {
             initializePawnPuzzle();
-            // Initialize other puzzles here
+            // Initialize other puzzle boards here
         };
     </script>
+
 </body>
 </html>
