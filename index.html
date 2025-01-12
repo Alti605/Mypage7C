@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Chess - Chess Pieces</title>
-    <!-- Improved Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Chessboard.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-    <!-- Chessboard.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <title>Learn Chess - Pieces & Legends</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* General Reset */
+        /* Reset and Basic Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body Styles */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
             color: #333;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         header h1 {
-            font-size: 2.8em;
-            font-weight: 600;
+            font-size: 2.5em;
+            font-weight: 700;
             color: #2c3e50;
         }
 
@@ -44,8 +39,23 @@
             margin-top: 10px;
         }
 
+        header button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        header button:hover {
+            background-color: #2980b9;
+        }
+
         nav ul {
-            list-style-type: none;
+            list-style: none;
             text-align: center;
             margin: 20px 0;
         }
@@ -57,64 +67,46 @@
 
         nav ul li a {
             text-decoration: none;
-            font-weight: 500;
-            color: #2980b9;
-            font-size: 1em;
-        }
-
-        nav ul li a:hover {
+            font-weight: 600;
             color: #3498db;
         }
 
+        nav ul li a:hover {
+            color: #1abc9c;
+        }
+
         section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         section h2 {
-            font-size: 2.2em;
+            font-size: 2em;
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
         }
 
-        button {
-            background-color: #2980b9;
-            color: white;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 1.1em;
-            border-radius: 5px;
-            border: none;
-            margin: 20px auto;
+        .piece-image,
+        .player-image {
+            width: 100%;
+            max-width: 200px;
             display: block;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 500;
-        }
-
-        button:hover {
-            background-color: #3498db;
-        }
-
-        .chessboard {
             margin: 20px auto;
-            width: 400px;
-            height: 400px;
+            border-radius: 8px;
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
-            font-size: 1em;
+            font-size: 0.9em;
             color: #7f8c8d;
         }
 
         footer p {
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
 
-        /* Dark Mode Styles */
+        /* Dark Mode */
         body.dark-mode {
             background-color: #2c3e50;
             color: #ecf0f1;
@@ -126,22 +118,38 @@
         }
 
         body.dark-mode nav ul li a {
-            color: #3498db;
-        }
-
-        body.dark-mode button {
-            background-color: #3498db;
+            color: #1abc9c;
         }
 
         body.dark-mode footer p {
             color: #ecf0f1;
         }
+
+        body.dark-mode header button {
+            background-color: #1abc9c;
+            color: white;
+        }
+
+        body.dark-mode header button:hover {
+            background-color: #16a085;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Learn Chess - Chess Pieces</h1>
-        <p>Explore and learn about each chess piece!</p>
+        <h1>Learn Chess</h1>
+        <p>Discover chess pieces, their roles, and the legends who mastered the game!</p>
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
 
@@ -153,6 +161,7 @@
             <li><a href="#bishop">Bishop</a></li>
             <li><a href="#queen">Queen</a></li>
             <li><a href="#king">King</a></li>
+            <li><a href="#players">Famous Players</a></li>
         </ul>
     </nav>
 
@@ -160,12 +169,64 @@
         <!-- Pawn Section -->
         <section id="pawn">
             <h2>The Pawn</h2>
-            <p>The pawn is the most numerous piece in chess, typically starting in the second row. It moves forward one square at a time but captures diagonally.</p>
-            <div id="pawn-board" class="chessboard"></div>
-            <button onclick="showChessboard('pawn-board')">See Pawn in Action</button>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt60.svg" alt="Pawn" class="piece-image">
+            <p>The pawn is the smallest and most numerous chess piece. It moves forward one square at a time but captures diagonally. When a pawn reaches the opposite end of the board, it can be promoted to a more powerful piece.</p>
         </section>
 
-        <!-- Add other chess pieces here -->
+        <!-- Rook Section -->
+        <section id="rook">
+            <h2>The Rook</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt60.svg" alt="Rook" class="piece-image">
+            <p>The rook moves in straight lines across ranks or files. It plays a vital role in both defense and attack, especially in the endgame.</p>
+        </section>
+
+        <!-- Knight Section -->
+        <section id="knight">
+            <h2>The Knight</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt60.svg" alt="Knight" class="piece-image">
+            <p>The knight moves in an "L" shape: two squares in one direction and one square perpendicular. It’s the only piece that can jump over others.</p>
+        </section>
+
+        <!-- Bishop Section -->
+        <section id="bishop">
+            <h2>The Bishop</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt60.svg" alt="Bishop" class="piece-image">
+            <p>The bishop moves diagonally, staying on squares of one color. It is especially powerful in open positions.</p>
+        </section>
+
+        <!-- Queen Section -->
+        <section id="queen">
+            <h2>The Queen</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt60.svg" alt="Queen" class="piece-image">
+            <p>The queen is the most powerful piece, combining the movement of the rook and bishop. It dominates the board with its versatility.</p>
+        </section>
+
+        <!-- King Section -->
+        <section id="king">
+            <h2>The King</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt60.svg" alt="King" class="piece-image">
+            <p>The king is the most important piece. It moves one square in any direction. The game ends when the king is checkmated.</p>
+        </section>
+
+        <!-- Famous Players Section -->
+        <section id="players">
+            <h2>Famous Chess Players</h2>
+            <!-- Garry Kasparov -->
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Kasparov_13.jpg" alt="Garry Kasparov" class="player-image">
+                <p><strong>Garry Kasparov</strong>: Dominated chess from 1985 to 2000, known for his aggressive playing style and strategic brilliance.</p>
+            </div>
+            <!-- Magnus Carlsen -->
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Magnus_Carlsen_World_Chess_Champion_2020.jpg" alt="Magnus Carlsen" class="player-image">
+                <p><strong>Magnus Carlsen</strong>: The current World Chess Champion, celebrated for his endgame mastery and intuitive play.</p>
+            </div>
+            <!-- Bobby Fischer -->
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Bobby_Fischer_1970.jpg" alt="Bobby Fischer" class="player-image">
+                <p><strong>Bobby Fischer</strong>: An American chess legend who became World Champion in 1972. Renowned for his genius and innovation.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -173,30 +234,9 @@
     </footer>
 
     <script>
-        // Ensure the script runs after the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to initialize the chessboard
-            function showChessboard(boardId) {
-                const boardElement = document.getElementById(boardId);
-                if (boardElement) {
-                    Chessboard(boardElement, { position: 'start' });
-                } else {
-                    console.error(`Chessboard element with ID ${boardId} not found.`);
-                }
-            }
-
-            // Toggle dark mode
-            function toggleDarkMode() {
-                document.body.classList.toggle('dark-mode');
-            }
-
-            // Expose functions globally for button click events
-            window.showChessboard = showChessboard;
-            window.toggleDarkMode = toggleDarkMode;
-        });
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
     </script>
-</body>
-</html>
-
 </body>
 </html>
