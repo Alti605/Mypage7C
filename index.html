@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Chess</title>
-    <!-- Fonts -->
+    <title>Master Chess</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    <!-- Styles -->
     <style>
         * {
             margin: 0;
@@ -17,45 +17,45 @@
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f9f9f9;
-            color: #333;
-            padding: 20px;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 0 20px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            padding: 20px 0;
+            background-color: #3498db;
+            color: white;
         }
 
         header h1 {
             font-size: 3em;
-            font-weight: 700;
-            color: #2c3e50;
+            margin-bottom: 10px;
         }
 
         header p {
             font-size: 1.2em;
-            margin-top: 10px;
+            margin-bottom: 15px;
         }
 
         header button {
-            margin-top: 15px;
             padding: 10px 20px;
-            font-size: 1em;
-            background-color: #3498db;
+            background-color: #1abc9c;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1em;
         }
 
         header button:hover {
-            background-color: #2980b9;
+            background-color: #16a085;
         }
 
         nav {
-            background-color: #f4f4f4;
-            padding: 10px;
-            text-align: center;
+            background: #ecf0f1;
+            padding: 10px 0;
         }
 
         nav ul {
@@ -66,12 +66,12 @@
         }
 
         nav ul li {
-            margin: 0 10px;
+            margin: 0 15px;
         }
 
         nav ul li a {
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
             color: #3498db;
         }
 
@@ -80,17 +80,16 @@
         }
 
         main {
+            max-width: 1200px;
             margin: 20px auto;
-            max-width: 800px;
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         section h2 {
-            font-size: 2em;
-            font-weight: 600;
+            font-size: 2.2em;
             margin-bottom: 20px;
             color: #2c3e50;
         }
@@ -99,28 +98,27 @@
             margin-bottom: 20px;
         }
 
-        section iframe {
+        .video-section iframe {
             width: 100%;
-            height: 300px;
-            border: none;
+            height: 350px;
             border-radius: 8px;
         }
 
         .quiz-section {
-            margin-top: 20px;
+            background: #ecf0f1;
             padding: 20px;
-            background-color: #ecf0f1;
             border-radius: 10px;
         }
 
         .quiz-section h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .quiz-section button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #3498db;
+            margin: 5px 5px 0 0;
+            padding: 10px 15px;
+            font-size: 1em;
+            background: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
@@ -128,25 +126,52 @@
         }
 
         .quiz-section button:hover {
-            background-color: #2980b9;
+            background: #2980b9;
+        }
+
+        .player-section img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .player-section .player {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .player-section .player img {
+            margin-right: 20px;
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #7f8c8d;
+            padding: 20px 0;
+            background: #2c3e50;
+            color: white;
         }
 
         footer p {
             margin-top: 10px;
         }
+
+        @media (max-width: 768px) {
+            .player-section .player {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .player-section .player img {
+                margin: 0 0 15px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Learn Chess</h1>
-        <p>Master the art of chess with guides, exercises, and stories of legendary players!</p>
+        <h1>Master Chess</h1>
+        <p>Learn, Practice, and Master the Game of Kings!</p>
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
 
@@ -163,46 +188,42 @@
         <!-- Rules Section -->
         <section id="rules">
             <h2>Chess Rules</h2>
-            <p>Learn how each piece moves, special rules like castling, and how to win the game.</p>
-            <iframe src="https://www.youtube.com/embed/lptK5_X1naQ" title="Chess Rules"></iframe>
+            <p>Chess is played on an 8x8 board with 64 squares of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The goal is to checkmate your opponent's king.</p>
+            <p>Learn special moves like castling, en passant, and promotion to become a pro!</p>
         </section>
 
         <!-- Videos Section -->
-        <section id="videos">
-            <h2>Instructional Videos</h2>
-            <p>Watch and learn from the best chess coaches and players around the world.</p>
-            <iframe src="https://www.youtube.com/embed/Uh4rD7pR4cA" title="Chess Strategies"></iframe>
+        <section id="videos" class="video-section">
+            <h2>Learn with Videos</h2>
+            <iframe src="https://www.youtube.com/embed/lptK5_X1naQ" title="Learn Chess Rules"></iframe>
         </section>
 
         <!-- Quiz Section -->
         <section id="quiz" class="quiz-section">
-            <h2>Test Your Knowledge</h2>
-            <h3>Question: What is the only piece that can jump over others?</h3>
-            <button onclick="alert('Correct! The knight is the only piece that can jump over others.')">Knight</button>
+            <h2>Test Your Chess Knowledge</h2>
+            <h3>Question: Which piece can move any number of squares in any direction?</h3>
+            <button onclick="alert('Correct! The queen can move any number of squares in any direction.')">Queen</button>
             <button onclick="alert('Incorrect. Try again!')">Rook</button>
-            <button onclick="alert('Incorrect. Try again!')">Queen</button>
+            <button onclick="alert('Incorrect. Try again!')">Knight</button>
         </section>
 
         <!-- Famous Players Section -->
-        <section id="players">
-            <h2>Famous Chess Players</h2>
-            <div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Kasparov_13.jpg" alt="Garry Kasparov" style="width:200px;">
-                <p><strong>Garry Kasparov:</strong> Dominated chess for decades with his aggressive style and strategic thinking.</p>
+        <section id="players" class="player-section">
+            <h2>Famous Chess Legends</h2>
+            <div class="player">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Kasparov_13.jpg" alt="Garry Kasparov">
+                <p><strong>Garry Kasparov:</strong> Known for his strategic brilliance, Kasparov dominated chess during the 1980s and 1990s.</p>
             </div>
-            <div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Magnus_Carlsen_World_Chess_Champion_2020.jpg" alt="Magnus Carlsen" style="width:200px;">
-                <p><strong>Magnus Carlsen:</strong> A prodigy known for his deep understanding and brilliant endgames.</p>
-            </div>
-            <div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Bobby_Fischer_1970.jpg" alt="Bobby Fischer" style="width:200px;">
-                <p><strong>Bobby Fischer:</strong> Revolutionized chess with his genius and unique approach to the game.</p>
+            <div class="player">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Magnus_Carlsen_World_Chess_Champion_2020.jpg" alt="Magnus Carlsen">
+                <p><strong>Magnus Carlsen:</strong> A modern chess prodigy, Carlsen holds the record for the highest chess rating ever achieved.</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Learn Chess</p>
+        <p>&copy; 2025 Master Chess</p>
+        <p>Enhance your skills and rule the board!</p>
     </footer>
 
     <script>
