@@ -221,7 +221,7 @@
         <!-- Rules Section -->
         <section id="rules">
             <h2>Chess Rules</h2>
-            <p>Chess is played on an 8x8 board with 64 squares of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The goal is to checkmate your opponent's king.</p>
+            <p>Chess is played on an 8x8 board with 64 squares of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.</p>
             <p>Learn special moves like castling, en passant, and promotion to become a pro!</p>
         </section>
 
